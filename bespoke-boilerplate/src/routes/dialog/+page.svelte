@@ -28,7 +28,9 @@
 	<div class="mb-6">
 		<Dialog>
 			<DialogTrigger>
-				<Button variant="outline">Open Dialog</Button>
+				{#snippet child({ props }: { props: Record<string, unknown> })}
+					<Button variant="outline" {...props}>Open Dialog</Button>
+				{/snippet}
 			</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
@@ -39,7 +41,11 @@
 					</DialogDescription>
 				</DialogHeader>
 				<DialogFooter>
-					<DialogClose><Button variant="outline">Cancel</Button></DialogClose>
+					<DialogClose>
+						{#snippet child({ props }: { props: Record<string, unknown> })}
+							<Button variant="outline" {...props}>Cancel</Button>
+						{/snippet}
+					</DialogClose>
 					<Button>Save</Button>
 				</DialogFooter>
 			</DialogContent>
@@ -54,10 +60,12 @@
 	<div class="mb-6">
 		<Dialog>
 			<DialogTrigger>
-				<Button>
-					<Pencil class="mr-2 size-4" />
-					Edit Profile
-				</Button>
+				{#snippet child({ props }: { props: Record<string, unknown> })}
+					<Button {...props}>
+						<Pencil class="mr-2 size-4" />
+						Edit Profile
+					</Button>
+				{/snippet}
 			</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
@@ -77,7 +85,11 @@
 					</div>
 				</div>
 				<DialogFooter>
-					<DialogClose><Button variant="outline">Cancel</Button></DialogClose>
+					<DialogClose>
+						{#snippet child({ props }: { props: Record<string, unknown> })}
+							<Button variant="outline" {...props}>Cancel</Button>
+						{/snippet}
+					</DialogClose>
 					<Button>Save changes</Button>
 				</DialogFooter>
 			</DialogContent>
@@ -90,10 +102,12 @@
 	<div class="mb-6">
 		<Dialog bind:open={confirmOpen}>
 			<DialogTrigger>
-				<Button variant="destructive">
-					<Trash2 class="mr-2 size-4" />
-					Delete Account
-				</Button>
+				{#snippet child({ props }: { props: Record<string, unknown> })}
+					<Button variant="destructive" {...props}>
+						<Trash2 class="mr-2 size-4" />
+						Delete Account
+					</Button>
+				{/snippet}
 			</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
@@ -104,7 +118,11 @@
 					</DialogDescription>
 				</DialogHeader>
 				<DialogFooter>
-					<DialogClose><Button variant="outline">Cancel</Button></DialogClose>
+					<DialogClose>
+						{#snippet child({ props }: { props: Record<string, unknown> })}
+							<Button variant="outline" {...props}>Cancel</Button>
+						{/snippet}
+					</DialogClose>
 					<Button
 						variant="destructive"
 						onclick={() => {
@@ -150,13 +168,14 @@
 		</DialogHeader>
 		<DialogFooter>
 			<DialogClose
-				><Button
-					variant="outline"
-					onclick={() => {
-						lastAction = 'Cancelled';
-					}}>Cancel</Button
-				></DialogClose
+				onclick={() => {
+					lastAction = 'Cancelled';
+				}}
 			>
+				{#snippet child({ props }: { props: Record<string, unknown> })}
+					<Button variant="outline" {...props}>Cancel</Button>
+				{/snippet}
+			</DialogClose>
 			<Button
 				onclick={() => {
 					lastAction = 'Saved';
