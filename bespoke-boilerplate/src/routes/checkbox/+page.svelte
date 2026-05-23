@@ -3,14 +3,6 @@
 
 	let accepted = $state(false);
 	let fruits: string[] = $state([]);
-
-	function toggleFruit(fruit: string) {
-		if (fruits.includes(fruit)) {
-			fruits = fruits.filter((f) => f !== fruit);
-		} else {
-			fruits = [...fruits, fruit];
-		}
-	}
 </script>
 
 <div class="grid">
@@ -24,19 +16,6 @@
 	<div class="mb-6 flex items-center gap-2">
 		<Checkbox id="p1-terms" />
 		<Label for="p1-terms">Accept terms and conditions</Label>
-	</div>
-
-	<!-- Checked / Unchecked -->
-	<h2>Checked / Unchecked</h2>
-	<div class="mb-6 flex flex-wrap gap-6">
-		<div class="flex items-center gap-2">
-			<Checkbox id="p1-unchecked" />
-			<Label for="p1-unchecked">Unchecked</Label>
-		</div>
-		<div class="flex items-center gap-2">
-			<Checkbox id="p1-checked" checked />
-			<Label for="p1-checked">Checked</Label>
-		</div>
 	</div>
 
 	<!-- Disabled -->
@@ -62,8 +41,13 @@
 			<div class="flex items-center gap-2">
 				<Checkbox
 					id={`p1-fruit-${fruit}`}
-					checked={fruits.includes(fruit)}
-					onclick={() => toggleFruit(fruit)}
+					bind:checked={
+						() => fruits.includes(fruit),
+						(v) => {
+							if (v) fruits.push(fruit);
+							else fruits.splice(fruits.indexOf(fruit), 1);
+						}
+					}
 				/>
 				<Label for={`p1-fruit-${fruit}`}>{fruit}</Label>
 			</div>
