@@ -37,7 +37,7 @@
 
 	<!-- Basic -->
 	<h2>Basic</h2>
-	<div class="mb-6">
+	<div class="mb-6 overflow-x-auto">
 		<Table>
 			<TableHeader>
 				<TableRow>
@@ -62,7 +62,7 @@
 
 	<!-- With Footer -->
 	<h2>With Footer</h2>
-	<div class="mb-6">
+	<div class="mb-6 overflow-x-auto">
 		<Table>
 			<TableHeader>
 				<TableRow>
@@ -93,7 +93,7 @@
 
 	<!-- With Caption -->
 	<h2>With Caption</h2>
-	<div class="mb-6">
+	<div class="mb-6 overflow-x-auto">
 		<Table>
 			<TableCaption>A list of recent invoices.</TableCaption>
 			<TableHeader>
@@ -119,7 +119,7 @@
 
 	<!-- Custom Cell Content -->
 	<h2>Custom Cell Content</h2>
-	<div class="mb-6">
+	<div class="mb-6 overflow-x-auto">
 		<Table>
 			<TableHeader>
 				<TableRow>

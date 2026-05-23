@@ -126,7 +126,7 @@
 	}
 </script>
 
-<div class={cn('w-full', className)} {...restProps}>
+<div class={cn('w-full overflow-x-auto', className)} {...restProps}>
 	{#if searchable || toolbarSnippet}
 		<DataTableToolbar bind:search>
 			{#if toolbarSnippet}
