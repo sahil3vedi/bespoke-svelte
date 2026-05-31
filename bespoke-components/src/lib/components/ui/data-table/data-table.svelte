@@ -5,7 +5,13 @@
 	import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '../table/index.js';
 	import DataTableToolbar from './data-table-toolbar.svelte';
 	import DataTablePagination from './data-table-pagination.svelte';
-	import { ArrowUp, ArrowDown, ArrowUpDown } from 'lucide-svelte';
+	import Checkbox from '../checkbox/checkbox.svelte';
+	import DropdownMenu from '../dropdown-menu/dropdown-menu.svelte';
+	import DropdownMenuTrigger from '../dropdown-menu/dropdown-menu-trigger.svelte';
+	import DropdownMenuContent from '../dropdown-menu/dropdown-menu-content.svelte';
+	import DropdownMenuLabel from '../dropdown-menu/dropdown-menu-label.svelte';
+	import DropdownMenuSeparator from '../dropdown-menu/dropdown-menu-separator.svelte';
+	import { ArrowUp, ArrowDown, ArrowUpDown, SlidersHorizontal, ChevronDown } from 'lucide-svelte';
 
 	/**
 	 * @typedef {{
@@ -22,6 +28,7 @@
 	 *   pageSize?: number,
 	 *   searchable?: boolean,
 	 *   selectable?: boolean,
+	 *   columnToggle?: boolean,
 	 *   columnVisibility?: Record<string, boolean>,
 	 *   onSelectionChange?: (rows: Record<string, any>[]) => void,
 	 *   class?: string,
@@ -35,6 +42,7 @@
 		pageSize: initialPageSize = 10,
 		searchable = true,
 		selectable = false,
+		columnToggle = false,
 		columnVisibility = $bindable({}),
 		onSelectionChange,
 		class: className = '',
@@ -118,19 +126,49 @@
 		}
 	}
 
-	/** @param {HTMLInputElement} node */
-	function indeterminate(node) {
-		$effect(() => {
-			node.indeterminate = someSelected;
-		});
+	/** @param {string} key */
+	function toggleColumn(key) {
+		const isVisible = columnVisibility[key] !== false;
+		// Keep at least one column visible.
+		if (isVisible && visibleColumns.length <= 1) return;
+		columnVisibility = { ...columnVisibility, [key]: !isVisible };
+	}
+
+	/** @param {ColumnDef} col */
+	function columnLabel(col) {
+		return typeof col.header === 'string' ? col.header : col.key;
 	}
 </script>
 
 <div class={cn('w-full overflow-x-auto', className)} {...restProps}>
-	{#if searchable || toolbarSnippet}
+	{#if searchable || toolbarSnippet || columnToggle}
 		<DataTableToolbar bind:search>
 			{#if toolbarSnippet}
 				{@render toolbarSnippet()}
+			{/if}
+			{#if columnToggle}
+				<DropdownMenu class="ml-auto">
+					<DropdownMenuTrigger
+						class="inline-flex items-center gap-1.5 rounded-md border border-input bg-background px-3 py-1.5 text-sm transition-colors hover:bg-muted"
+					>
+						<SlidersHorizontal class="size-4" />
+						Columns
+						<ChevronDown class="size-4 opacity-50" />
+					</DropdownMenuTrigger>
+					<DropdownMenuContent align="end" class="min-w-44">
+						<DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+						<DropdownMenuSeparator />
+						{#each columns as col (col.key)}
+							{@const visible = columnVisibility[col.key] !== false}
+							<label
+								class="relative flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm transition-colors select-none hover:bg-accent hover:text-accent-foreground"
+							>
+								<Checkbox checked={visible} onCheckedChange={() => toggleColumn(col.key)} />
+								{columnLabel(col)}
+							</label>
+						{/each}
+					</DropdownMenuContent>
+				</DropdownMenu>
 			{/if}
 		</DataTableToolbar>
 	{/if}
@@ -140,12 +178,11 @@
 			<TableRow>
 				{#if selectable}
 					<TableHead class="w-10">
-						<input
-							use:indeterminate
-							type="checkbox"
+						<Checkbox
 							checked={allSelected}
-							onchange={toggleAll}
-							class="size-4 cursor-pointer rounded border-border"
+							indeterminate={someSelected}
+							onCheckedChange={toggleAll}
+							class="cursor-pointer"
 							aria-label="Select all rows"
 						/>
 					</TableHead>
@@ -206,12 +243,11 @@
 					>
 						{#if selectable}
 							<TableCell class="w-10">
-								<input
-									type="checkbox"
+								<Checkbox
 									checked={isSelected}
-									onchange={() => toggleRow(row)}
+									onCheckedChange={() => toggleRow(row)}
 									onclick={(e) => e.stopPropagation()}
-									class="size-4 cursor-pointer rounded border-border"
+									class="cursor-pointer"
 									aria-label="Select row"
 								/>
 							</TableCell>

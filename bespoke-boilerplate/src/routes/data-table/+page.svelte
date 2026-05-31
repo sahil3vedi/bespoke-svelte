@@ -259,27 +259,16 @@
 	<!-- Column visibility -->
 	<h2 class="mt-10">Column Visibility</h2>
 	<p class="mb-4 text-sm text-muted-foreground">
-		Pass <code>bind:columnVisibility</code> and control it from the <code>toolbar</code> snippet.
+		Pass <code>columnToggle</code> for a built-in checkbox dropdown to show/hide columns. Bind
+		<code>columnVisibility</code> to read or control the state.
 	</p>
-	<DataTable columns={visibilityColumns} data={people} pageSize={5} bind:columnVisibility>
-		{#snippet toolbar()}
-			<div class="flex items-center gap-1">
-				{#each visibilityColumns as col (col.key)}
-					{@const visible = columnVisibility[col.key] !== false}
-					<button
-						onclick={() => (columnVisibility[col.key] = !visible)}
-						class="flex items-center gap-1.5 rounded-md border px-2.5 py-1 text-xs transition-colors {visible
-							? 'border-primary bg-primary/10 text-primary'
-							: 'border-border bg-background text-muted-foreground hover:text-foreground'}"
-					>
-						<span class="size-1.5 rounded-full {visible ? 'bg-primary' : 'bg-muted-foreground/50'}"
-						></span>
-						{col.header}
-					</button>
-				{/each}
-			</div>
-		{/snippet}
-	</DataTable>
+	<DataTable
+		columns={visibilityColumns}
+		data={people}
+		pageSize={5}
+		columnToggle
+		bind:columnVisibility
+	/>
 
 	<!-- Empty state -->
 	<h2 class="mt-10">Empty State</h2>
