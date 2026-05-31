@@ -5,6 +5,12 @@
 	let { children, class: className = '', ...restProps } = $props();
 </script>
 
-<thead class={cn('[&_tr]:border-b [&_tr]:border-border', className)} {...restProps}>
+<thead
+	class={cn(
+		'[&_tr]:border-b [&_tr]:border-border [&_tr]:bg-muted/50 [&_tr]:hover:bg-muted/50',
+		className
+	)}
+	{...restProps}
+>
 	{@render children?.()}
 </thead>

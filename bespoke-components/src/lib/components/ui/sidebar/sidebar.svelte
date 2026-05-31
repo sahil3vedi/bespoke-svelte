@@ -10,6 +10,10 @@
 	import DropdownMenuItem from '../dropdown-menu/dropdown-menu-item.svelte';
 	import DropdownMenuLabel from '../dropdown-menu/dropdown-menu-label.svelte';
 	import DropdownMenuSeparator from '../dropdown-menu/dropdown-menu-separator.svelte';
+	import Tooltip from '../tooltip/tooltip.svelte';
+	import TooltipTrigger from '../tooltip/tooltip-trigger.svelte';
+	import TooltipContent from '../tooltip/tooltip-content.svelte';
+	import TooltipProvider from '../tooltip/tooltip-provider.svelte';
 
 	/** @type {{
 	 *   sidebarItems: Array<{ label: string, icon: new (...args: any[]) => import('svelte').SvelteComponent, path: string }>,
@@ -75,40 +79,51 @@
 	)}
 	{...restProps}
 >
-	<nav
-		class="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto px-3.5 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-	>
-		{#each sidebarItems as item (item.path)}
-			<div class="group/item relative">
-				<a
-					href={resolve(/** @type {any} */ (item.path))}
+	<TooltipProvider delayDuration={0}>
+		<nav
+			class="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto px-3.5 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+		>
+		{#snippet navLink(item, props)}
+			<a
+				href={resolve(/** @type {any} */ (item.path))}
+				{...props}
+				class={cn(
+					'flex h-10 items-center gap-3 rounded-lg px-3 transition-colors',
+					isActive(item.path)
+						? 'bg-muted text-foreground'
+						: 'text-muted-foreground hover:bg-muted hover:text-foreground'
+				)}
+			>
+				<item.icon class="size-4 shrink-0" />
+				<span
 					class={cn(
-						'flex h-10 items-center gap-3 rounded-lg px-3 transition-colors',
-						isActive(item.path)
-							? 'bg-muted text-foreground'
-							: 'text-muted-foreground hover:bg-muted hover:text-foreground'
+						'truncate text-sm font-medium transition-all duration-150',
+						collapsed ? 'w-0 overflow-hidden opacity-0' : 'opacity-100'
 					)}
 				>
-					<item.icon class="size-4 shrink-0" />
-					<span
-						class={cn(
-							'truncate text-sm font-medium transition-all duration-150',
-							collapsed ? 'w-0 overflow-hidden opacity-0' : 'opacity-100'
-						)}
-					>
+					{item.label}
+				</span>
+			</a>
+		{/snippet}
+
+		{#each sidebarItems as item (item.path)}
+			{#if collapsed}
+				<Tooltip>
+					<TooltipTrigger>
+						{#snippet child({ props })}
+							{@render navLink(item, props)}
+						{/snippet}
+					</TooltipTrigger>
+					<TooltipContent side="right" sideOffset={8}>
 						{item.label}
-					</span>
-				</a>
-				{#if collapsed}
-					<div
-						class="pointer-events-none absolute top-1/2 left-full z-50 ml-3 -translate-y-1/2 rounded-md border border-border bg-popover px-2 py-1 text-xs whitespace-nowrap text-popover-foreground opacity-0 shadow-md transition-opacity group-hover/item:opacity-100"
-					>
-						{item.label}
-					</div>
-				{/if}
-			</div>
+					</TooltipContent>
+				</Tooltip>
+			{:else}
+				{@render navLink(item, {})}
+			{/if}
 		{/each}
-	</nav>
+		</nav>
+	</TooltipProvider>
 
 	<hr class="mt-auto border-t border-border" />
 	<div class="group/theme relative p-3.5 md:pb-0">

@@ -27,7 +27,7 @@
 	const end = $derived(Math.min(page * pageSize, totalRows));
 </script>
 
-<div class={cn('flex items-center justify-between border-t px-1 py-3', className)}>
+<div class={cn('flex items-center justify-between border-t border-border/50 px-1 py-3', className)}>
 	<p class="text-sm text-muted-foreground">
 		{#if selectedCount > 0}
 			{selectedCount} of {totalRows} row(s) selected
@@ -46,7 +46,7 @@
 						pageSize = Number(/** @type {HTMLSelectElement} */ (e.target).value);
 						page = 1;
 					}}
-					class="rounded border border-input bg-background px-2 py-1 text-sm"
+					class="rounded border border-input bg-background py-1 pr-8 pl-2 text-sm"
 				>
 					{#each pageSizes as size (size)}
 						<option value={size}>{size}</option>
