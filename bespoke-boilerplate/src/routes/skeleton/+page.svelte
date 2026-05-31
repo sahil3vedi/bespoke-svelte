@@ -11,8 +11,8 @@
 		Placeholder for loading content. Animates with a pulse.
 	</p>
 	<div class="mb-6 flex flex-wrap gap-4">
-		<Skeleton class="h-10 w-40" />
-		<Skeleton class="h-4 w-60" />
+		<Skeleton class="h-10 w-40 basis-full sm:basis-auto" />
+		<Skeleton class="h-4 w-60 basis-full sm:basis-auto" />
 		<Skeleton class="size-12 rounded-full" />
 	</div>
 
@@ -51,21 +51,23 @@
 	<!-- Table Skeleton -->
 	<h2>Table Skeleton</h2>
 	<p class="mb-4 text-sm text-muted-foreground">Skeleton rows for table loading states.</p>
-	<div class="mb-6 max-w-md space-y-2">
-		<div class="flex gap-4">
-			<Skeleton class="h-4 w-20" />
-			<Skeleton class="h-4 w-24" />
-			<Skeleton class="h-4 w-16" />
-			<Skeleton class="h-4 w-24" />
-		</div>
-		{#each [0, 1, 2, 3] as i (i)}
+	<div class="mb-6 overflow-x-auto">
+		<div class="max-w-md space-y-2">
 			<div class="flex gap-4">
 				<Skeleton class="h-4 w-20" />
 				<Skeleton class="h-4 w-24" />
 				<Skeleton class="h-4 w-16" />
 				<Skeleton class="h-4 w-24" />
 			</div>
-		{/each}
+			{#each [0, 1, 2, 3] as i (i)}
+				<div class="flex gap-4">
+					<Skeleton class="h-4 w-20" />
+					<Skeleton class="h-4 w-24" />
+					<Skeleton class="h-4 w-16" />
+					<Skeleton class="h-4 w-24" />
+				</div>
+			{/each}
+		</div>
 	</div>
 
 	<!-- Interactive Example -->

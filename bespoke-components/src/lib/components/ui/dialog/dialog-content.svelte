@@ -4,7 +4,7 @@
 	import * as Dialog from './index.js';
 	import { cn } from '../../../utils.js';
 	import { Button } from '../button/index.js';
-	import XIcon from '@lucide/svelte/icons/x';
+	import { X as XIcon } from 'lucide-svelte';
 
 	let {
 		ref = $bindable(null),

@@ -1,5 +1,11 @@
 <script lang="ts">
-	import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from 'bespoke-components';
+	import {
+		Accordion,
+		AccordionItem,
+		AccordionTrigger,
+		AccordionContent,
+		Checkbox
+	} from 'bespoke-components';
 
 	const faq = [
 		{
@@ -24,6 +30,12 @@
 
 	let singleValue = $state('item-1');
 	let multiValue: string[] = $state([]);
+
+	let notifications: Record<string, boolean> = $state({
+		'Email digests': true,
+		'Push notifications': false,
+		'Weekly summary': false
+	});
 </script>
 
 <div class="grid">
@@ -147,9 +159,9 @@
 			<AccordionTrigger>Notification preferences</AccordionTrigger>
 			<AccordionContent>
 				<div class="grid gap-2">
-					{#each ['Email digests', 'Push notifications', 'Weekly summary'] as label (label)}
+					{#each Object.keys(notifications) as label (label)}
 						<label class="flex items-center gap-2 text-sm">
-							<input type="checkbox" class="size-4 rounded border-border" />
+							<Checkbox bind:checked={notifications[label]} />
 							{label}
 						</label>
 					{/each}

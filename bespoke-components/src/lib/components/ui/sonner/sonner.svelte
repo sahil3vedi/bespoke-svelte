@@ -1,11 +1,13 @@
 <script>
 	import { Toaster as Sonner } from 'svelte-sonner';
 	import { mode } from 'mode-watcher';
-	import Loader2Icon from '@lucide/svelte/icons/loader-2';
-	import CircleCheckIcon from '@lucide/svelte/icons/circle-check';
-	import OctagonXIcon from '@lucide/svelte/icons/octagon-x';
-	import InfoIcon from '@lucide/svelte/icons/info';
-	import TriangleAlertIcon from '@lucide/svelte/icons/triangle-alert';
+	import {
+		Loader2 as Loader2Icon,
+		CircleCheck as CircleCheckIcon,
+		OctagonX as OctagonXIcon,
+		Info as InfoIcon,
+		TriangleAlert as TriangleAlertIcon
+	} from 'lucide-svelte';
 
 	let { ...restProps } = $props();
 </script>
@@ -32,3 +34,10 @@
 		<TriangleAlertIcon class="size-4" />
 	{/snippet}
 </Sonner>
+
+<style>
+	:global([data-sonner-toaster] [data-sonner-toast][data-styled='true'] [data-description]) {
+		color: var(--color-popover-foreground);
+		opacity: 0.9;
+	}
+</style>
