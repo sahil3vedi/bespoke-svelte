@@ -12,7 +12,7 @@
 		Input,
 		Label
 	} from '@sahil3vedi/bespoke-components';
-	import { Pencil, Trash2 } from 'lucide-svelte';
+	import { Pencil, Trash2 } from '@lucide/svelte';
 
 	let open = $state(false);
 	let confirmOpen = $state(false);

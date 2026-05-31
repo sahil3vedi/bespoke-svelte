@@ -12,7 +12,7 @@
 		Input,
 		Label
 	} from '@sahil3vedi/bespoke-components';
-	import { Settings, Bell, Share2, Info } from 'lucide-svelte';
+	import { Settings, Bell, Share2, Info } from '@lucide/svelte';
 
 	let open = $state(false);
 </script>

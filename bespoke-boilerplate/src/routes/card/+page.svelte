@@ -10,7 +10,7 @@
 		Button,
 		Badge
 	} from '@sahil3vedi/bespoke-components';
-	import { BellRing, CreditCard, Zap, ArrowUpRight } from 'lucide-svelte';
+	import { BellRing, CreditCard, Zap, ArrowUpRight } from '@lucide/svelte';
 </script>
 
 <div class="grid">

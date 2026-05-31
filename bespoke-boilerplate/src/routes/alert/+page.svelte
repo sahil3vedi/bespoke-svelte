@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Alert, AlertTitle, AlertDescription, AlertAction, Button } from '@sahil3vedi/bespoke-components';
-	import { Info, AlertTriangle, X, Rocket, Lightbulb, FileWarning, Share2 } from 'lucide-svelte';
+	import { Info, AlertTriangle, X, Rocket, Lightbulb, FileWarning, Share2 } from '@lucide/svelte';
 
 	let dismissed = $state(false);
 </script>

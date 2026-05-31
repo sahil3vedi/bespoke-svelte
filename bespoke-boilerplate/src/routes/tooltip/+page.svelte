@@ -6,7 +6,7 @@
 		TooltipProvider,
 		Button
 	} from '@sahil3vedi/bespoke-components';
-	import { ArrowUpRight, Info, Settings, Bell, Save, Plus } from 'lucide-svelte';
+	import { ArrowUpRight, Info, Settings, Bell, Save, Plus } from '@lucide/svelte';
 </script>
 
 <div class="grid">

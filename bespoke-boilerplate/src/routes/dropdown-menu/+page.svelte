@@ -18,7 +18,7 @@
 		Trash2,
 		Copy,
 		Share2
-	} from 'lucide-svelte';
+	} from '@lucide/svelte';
 
 	let lastAction = $state('');
 </script>

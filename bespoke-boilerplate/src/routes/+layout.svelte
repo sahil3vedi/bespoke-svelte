@@ -25,7 +25,7 @@
 		PanelRightClose,
 		AlertTriangle,
 		Bell
-	} from 'lucide-svelte';
+	} from '@lucide/svelte';
 
 	let { children } = $props();
 
