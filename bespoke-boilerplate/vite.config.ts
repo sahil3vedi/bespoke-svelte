@@ -7,10 +7,10 @@ const sourceAlias = process.env.BESPOKE_SOURCE_ALIAS === 'true';
 
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
-	ssr: { noExternal: ['bits-ui', 'bespoke-components', '@lucide/svelte'] },
+	ssr: { noExternal: ['bits-ui', '@sahil3vedi/bespoke-components', 'lucide-svelte'] },
 	...(sourceAlias && {
 		server: { fs: { allow: ['..'] } },
-		optimizeDeps: { exclude: ['bespoke-components'] }
+		optimizeDeps: { exclude: ['@sahil3vedi/bespoke-components'] }
 	}),
 	test: {
 		expect: { requireAssertions: true },

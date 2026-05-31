@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Skeleton, Card, CardHeader, CardContent } from 'bespoke-components';
+	import { Skeleton, Card, CardHeader, CardContent } from '@sahil3vedi/bespoke-components';
 </script>
 
 <div class="grid">

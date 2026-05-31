@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Input, Label } from 'bespoke-components';
+	import { Input, Label } from '@sahil3vedi/bespoke-components';
 	import { Search, Mail } from 'lucide-svelte';
 
 	let name = $state('');

@@ -5,7 +5,7 @@
 		TooltipContent,
 		TooltipProvider,
 		Button
-	} from 'bespoke-components';
+	} from '@sahil3vedi/bespoke-components';
 	import { ArrowUpRight, Info, Settings, Bell, Save, Plus } from 'lucide-svelte';
 </script>
 

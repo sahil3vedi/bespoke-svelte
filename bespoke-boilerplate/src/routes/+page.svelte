@@ -6,7 +6,7 @@
 		CardDescription,
 		Badge,
 		Button
-	} from 'bespoke-components';
+	} from '@sahil3vedi/bespoke-components';
 
 	const components = [
 		{ label: 'Button', path: '/button' },
@@ -68,7 +68,7 @@
 	<p class="mb-3 text-sm text-muted-foreground">Import components by name from the package:</p>
 	<pre
 		class="mb-6 max-w-2xl overflow-x-auto rounded-lg border border-border bg-muted p-4 text-sm"><code
-			>import &#123; Button, Card, Badge &#125; from 'bespoke-components';</code
+			>import &#123; Button, Card, Badge &#125; from '@sahil3vedi/bespoke-components';</code
 		></pre>
 
 	<!-- Features -->

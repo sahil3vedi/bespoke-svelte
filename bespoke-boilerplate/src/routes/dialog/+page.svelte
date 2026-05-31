@@ -11,7 +11,7 @@
 		Button,
 		Input,
 		Label
-	} from 'bespoke-components';
+	} from '@sahil3vedi/bespoke-components';
 	import { Pencil, Trash2 } from 'lucide-svelte';
 
 	let open = $state(false);

@@ -8,7 +8,7 @@
 		SelectGroup,
 		SelectLabel,
 		SelectSeparator
-	} from 'bespoke-components';
+	} from '@sahil3vedi/bespoke-components';
 
 	let fruit = $state('');
 	let timezone = $state('');

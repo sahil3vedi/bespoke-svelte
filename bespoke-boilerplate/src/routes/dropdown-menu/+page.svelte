@@ -7,7 +7,7 @@
 		DropdownMenuLabel,
 		DropdownMenuSeparator,
 		Button
-	} from 'bespoke-components';
+	} from '@sahil3vedi/bespoke-components';
 	import {
 		User,
 		Settings,

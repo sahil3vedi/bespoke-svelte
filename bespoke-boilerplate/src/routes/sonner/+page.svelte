@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Toaster, Button, toast } from 'bespoke-components';
+	import { Toaster, Button, toast } from '@sahil3vedi/bespoke-components';
 
 	let promiseLoading = $state(false);
 </script>
@@ -169,7 +169,7 @@
 		<div class="mt-4 space-y-2">
 			<pre class="overflow-x-auto rounded bg-background p-3 text-xs"><code
 					>import &#123; toast &#125; from 'svelte-sonner';
-import &#123; Toaster &#125; from 'bespoke-components';
+import &#123; Toaster &#125; from '@sahil3vedi/bespoke-components';
 
 // Trigger from anywhere
 toast.success('Saved!');

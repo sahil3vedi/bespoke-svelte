@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Label, Input, Checkbox, Switch } from 'bespoke-components';
+	import { Label, Input, Checkbox, Switch } from '@sahil3vedi/bespoke-components';
 
 	let checked = $state(false);
 	let switched = $state(false);

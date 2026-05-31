@@ -11,7 +11,7 @@
 		Checkbox,
 		Input,
 		Label
-	} from 'bespoke-components';
+	} from '@sahil3vedi/bespoke-components';
 	import { Settings, Bell, Share2, Info } from 'lucide-svelte';
 
 	let open = $state(false);

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Checkbox, Label } from 'bespoke-components';
+	import { Checkbox, Label } from '@sahil3vedi/bespoke-components';
 
 	let accepted = $state(false);
 	let fruits: string[] = $state([]);

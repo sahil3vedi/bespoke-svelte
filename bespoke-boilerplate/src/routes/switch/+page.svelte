@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Switch, Label } from 'bespoke-components';
+	import { Switch, Label } from '@sahil3vedi/bespoke-components';
 
 	let airplaneMode = $state(false);
 	let darkMode = $state(true);

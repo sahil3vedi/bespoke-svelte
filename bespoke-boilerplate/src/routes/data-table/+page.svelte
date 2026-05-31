@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DataTable, Button } from 'bespoke-components';
+	import { DataTable, Button } from '@sahil3vedi/bespoke-components';
 
 	// --- Basic demo data ---
 	const people = [

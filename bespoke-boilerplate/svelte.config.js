@@ -15,7 +15,12 @@ const config = {
 		adapter: adapter(),
 		alias:
 			process.env.BESPOKE_SOURCE_ALIAS === 'true'
-				? { 'bespoke-components': path.resolve(__dirname, '../bespoke-components/src/lib') }
+				? {
+						'@sahil3vedi/bespoke-components': path.resolve(
+							__dirname,
+							'../bespoke-components/src/lib'
+						)
+					}
 				: {}
 	}
 };

@@ -5,7 +5,7 @@
 		AccordionTrigger,
 		AccordionContent,
 		Checkbox
-	} from 'bespoke-components';
+	} from '@sahil3vedi/bespoke-components';
 
 	const faq = [
 		{

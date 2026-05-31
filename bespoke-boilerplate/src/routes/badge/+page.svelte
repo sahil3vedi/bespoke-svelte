@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Badge } from 'bespoke-components';
+	import { Badge } from '@sahil3vedi/bespoke-components';
 </script>
 
 <div class="grid">

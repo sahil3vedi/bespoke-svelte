@@ -1,6 +1,6 @@
-# sv
+# bespoke-boilerplate
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A SvelteKit starter wired to the [`@sahil3vedi/bespoke-components`](https://www.npmjs.com/package/@sahil3vedi/bespoke-components) library, with Tailwind theming preconfigured. Scaffolded with [`sv`](https://github.com/sveltejs/cli) and used as the base for new apps.
 
 ## Creating a project
 
@@ -18,15 +18,41 @@ To recreate this project with the same configuration:
 pnpm dlx sv@0.15.1 create --template minimal --types ts --add prettier eslint vitest="usages:unit,component" playwright tailwindcss="plugins:typography,forms" sveltekit-adapter="adapter:node" mcp="ide:opencode" --install pnpm bespoke-boilerplate
 ```
 
+## Component library
+
+UI comes from [`@sahil3vedi/bespoke-components`](https://www.npmjs.com/package/@sahil3vedi/bespoke-components), declared as a normal npm dependency in `package.json`. The theme tokens are pulled in once via `src/routes/theme.css`:
+
+```css
+@import '@sahil3vedi/bespoke-components/theme.css';
+```
+
+### Local source vs published package
+
+The boilerplate can resolve the library two ways, toggled by the `BESPOKE_SOURCE_ALIAS` env var:
+
+| Command | `BESPOKE_SOURCE_ALIAS` | Library resolves from |
+| --- | --- | --- |
+| `pnpm dev` | `true` | local source at `../bespoke-components/src/lib` — **hot reload** while editing the library |
+| `pnpm dev:dist` | `false` | the **published** npm package |
+| `pnpm build` | _(unset)_ | the **published** npm package |
+
+The alias is wired in `svelte.config.js` (key `@sahil3vedi/bespoke-components` → local `src/lib`) and `vite.config.ts` (`optimizeDeps.exclude`). Local-source mode requires the `bespoke-components` repo checked out as a sibling directory; it is a dev convenience only — production builds always use the published package.
+
+To pick up a new published library version, bump the range in `package.json` and run `pnpm install`.
+
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've installed dependencies with `pnpm install`, start a development server:
 
 ```sh
-npm run dev
+# local library source, hot reload
+pnpm dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# against the published package
+pnpm dev:dist
+
+# or open the app in a new browser tab
+pnpm dev -- --open
 ```
 
 ## Building

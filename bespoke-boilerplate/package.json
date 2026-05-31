@@ -4,7 +4,7 @@
 	"version": "0.0.1",
 	"type": "module",
 	"dependencies": {
-		"bespoke-components": "link:../bespoke-components",
+		"@sahil3vedi/bespoke-components": "^0.0.1",
 		"clsx": "^2.1.1",
 		"lucide-svelte": "^1.0.1",
 		"tailwind-merge": "^3.5.0"

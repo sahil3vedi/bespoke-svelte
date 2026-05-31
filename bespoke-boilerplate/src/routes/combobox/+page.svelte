@@ -5,7 +5,7 @@
 		ComboboxContent,
 		ComboboxItem,
 		ComboboxEmpty
-	} from 'bespoke-components';
+	} from '@sahil3vedi/bespoke-components';
 
 	const frameworks = [
 		{ value: 'next.js', label: 'Next.js' },

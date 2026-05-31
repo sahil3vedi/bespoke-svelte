@@ -9,7 +9,7 @@
 		CardAction,
 		Button,
 		Badge
-	} from 'bespoke-components';
+	} from '@sahil3vedi/bespoke-components';
 	import { BellRing, CreditCard, Zap, ArrowUpRight } from 'lucide-svelte';
 </script>
 

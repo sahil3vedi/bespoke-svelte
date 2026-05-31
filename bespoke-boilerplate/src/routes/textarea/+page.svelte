@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Textarea, Label } from 'bespoke-components';
+	import { Textarea, Label } from '@sahil3vedi/bespoke-components';
 
 	let bio = $state('');
 	let feedback = $state('');

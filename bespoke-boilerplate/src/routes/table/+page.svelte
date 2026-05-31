@@ -8,7 +8,7 @@
 		TableHead,
 		TableCell,
 		TableCaption
-	} from 'bespoke-components';
+	} from '@sahil3vedi/bespoke-components';
 
 	const invoices = [
 		{ invoice: 'INV-001', status: 'Paid', method: 'Credit Card', amount: '$250.00' },

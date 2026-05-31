@@ -9,7 +9,7 @@
 		Button,
 		Input,
 		Label
-	} from 'bespoke-components';
+	} from '@sahil3vedi/bespoke-components';
 
 	let tab = $state('account');
 </script>
