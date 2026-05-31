@@ -8,6 +8,7 @@
 		PopoverDescription,
 		PopoverClose,
 		Button,
+		Checkbox,
 		Input,
 		Label
 	} from 'bespoke-components';
@@ -64,14 +65,14 @@
 					<PopoverDescription>Choose what notifications you want to receive.</PopoverDescription>
 				</PopoverHeader>
 				<div class="grid gap-2">
-					<Label class="flex items-center gap-2">
-						<input type="checkbox" class="size-4 rounded border-border" checked />
-						<span class="text-sm">Email notifications</span>
-					</Label>
-					<Label class="flex items-center gap-2">
-						<input type="checkbox" class="size-4 rounded border-border" />
-						<span class="text-sm">Push notifications</span>
-					</Label>
+					<div class="flex items-center gap-2">
+						<Checkbox id="pop-email" checked />
+						<Label for="pop-email">Email notifications</Label>
+					</div>
+					<div class="flex items-center gap-2">
+						<Checkbox id="pop-push" />
+						<Label for="pop-push">Push notifications</Label>
+					</div>
 				</div>
 			</PopoverContent>
 		</Popover>
@@ -148,9 +149,22 @@
 			Bind <code>open</code> with <code>$state</code> for programmatic control:
 		</p>
 		<div class="flex items-center gap-4">
-			<Button variant="outline" onclick={() => (open = !open)}>
-				{open ? 'Close Popover' : 'Open Popover'}
-			</Button>
+			<Popover bind:open>
+				<PopoverTrigger>
+					<Button variant="outline">
+						{open ? 'Close Popover' : 'Open Popover'}
+					</Button>
+				</PopoverTrigger>
+				<PopoverContent class="w-72">
+					<PopoverHeader>
+						<PopoverTitle>Programmatic Popover</PopoverTitle>
+						<PopoverDescription>This popover is controlled via bound state.</PopoverDescription>
+					</PopoverHeader>
+					<PopoverClose>
+						<Button variant="outline" size="sm" class="w-full">Close</Button>
+					</PopoverClose>
+				</PopoverContent>
+			</Popover>
 			<div class="text-sm text-muted-foreground">
 				Status:
 				{#if open}
@@ -164,14 +178,3 @@
 		</div>
 	</div>
 </div>
-
-<!-- Programmatic popover -->
-<Popover bind:open>
-	<PopoverContent class="w-72">
-		<PopoverHeader>
-			<PopoverTitle>Programmatic Popover</PopoverTitle>
-			<PopoverDescription>This popover is controlled via bound state.</PopoverDescription>
-		</PopoverHeader>
-		<PopoverClose><Button variant="outline" size="sm" class="w-full">Close</Button></PopoverClose>
-	</PopoverContent>
-</Popover>

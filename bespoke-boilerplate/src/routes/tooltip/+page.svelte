@@ -22,7 +22,9 @@
 		<TooltipProvider>
 			<Tooltip>
 				<TooltipTrigger>
-					<Button variant="outline">Hover me</Button>
+					{#snippet child({ props })}
+						<Button {...props} variant="outline">Hover me</Button>
+					{/snippet}
 				</TooltipTrigger>
 				<TooltipContent>
 					<p>This is a tooltip</p>
@@ -38,9 +40,11 @@
 		<TooltipProvider>
 			<Tooltip>
 				<TooltipTrigger>
-					<Button size="icon" variant="outline" aria-label="Save">
-						<Save class="size-4" />
-					</Button>
+					{#snippet child({ props })}
+						<Button {...props} size="icon" variant="outline" aria-label="Save">
+							<Save class="size-4" />
+						</Button>
+					{/snippet}
 				</TooltipTrigger>
 				<TooltipContent>
 					<p>Save changes</p>
@@ -49,9 +53,11 @@
 
 			<Tooltip>
 				<TooltipTrigger>
-					<Button size="icon" variant="outline" aria-label="Settings">
-						<Settings class="size-4" />
-					</Button>
+					{#snippet child({ props })}
+						<Button {...props} size="icon" variant="outline" aria-label="Settings">
+							<Settings class="size-4" />
+						</Button>
+					{/snippet}
 				</TooltipTrigger>
 				<TooltipContent>
 					<p>Settings</p>
@@ -60,9 +66,11 @@
 
 			<Tooltip>
 				<TooltipTrigger>
-					<Button size="icon" variant="outline" aria-label="Notifications">
-						<Bell class="size-4" />
-					</Button>
+					{#snippet child({ props })}
+						<Button {...props} size="icon" variant="outline" aria-label="Notifications">
+							<Bell class="size-4" />
+						</Button>
+					{/snippet}
 				</TooltipTrigger>
 				<TooltipContent>
 					<p>Notifications</p>
@@ -78,10 +86,12 @@
 		<TooltipProvider>
 			<Tooltip>
 				<TooltipTrigger>
-					<Button variant="outline">
-						<Info class="mr-2 size-4" />
-						More info
-					</Button>
+					{#snippet child({ props })}
+						<Button {...props} variant="outline">
+							<Info class="mr-2 size-4" />
+							More info
+						</Button>
+					{/snippet}
 				</TooltipTrigger>
 				<TooltipContent class="max-w-xs">
 					<div class="grid gap-1">
@@ -132,9 +142,11 @@
 			<TooltipProvider>
 				<Tooltip>
 					<TooltipTrigger>
-						<Button size="icon-sm" variant="ghost" aria-label="Add new">
-							<Plus class="size-4" />
-						</Button>
+						{#snippet child({ props })}
+							<Button {...props} size="icon-sm" variant="ghost" aria-label="Add new">
+								<Plus class="size-4" />
+							</Button>
+						{/snippet}
 					</TooltipTrigger>
 					<TooltipContent>
 						<p>Add new item</p>
@@ -143,9 +155,11 @@
 
 				<Tooltip>
 					<TooltipTrigger>
-						<Button size="icon-sm" variant="ghost" aria-label="Save">
-							<Save class="size-4" />
-						</Button>
+						{#snippet child({ props })}
+							<Button {...props} size="icon-sm" variant="ghost" aria-label="Save">
+								<Save class="size-4" />
+							</Button>
+						{/snippet}
 					</TooltipTrigger>
 					<TooltipContent>
 						<p>Save</p>
@@ -154,9 +168,11 @@
 
 				<Tooltip>
 					<TooltipTrigger>
-						<Button size="icon-sm" variant="ghost" aria-label="Settings">
-							<Settings class="size-4" />
-						</Button>
+						{#snippet child({ props })}
+							<Button {...props} size="icon-sm" variant="ghost" aria-label="Settings">
+								<Settings class="size-4" />
+							</Button>
+						{/snippet}
 					</TooltipTrigger>
 					<TooltipContent>
 						<p>Open settings</p>
@@ -165,9 +181,11 @@
 
 				<Tooltip>
 					<TooltipTrigger>
-						<Button size="icon-sm" variant="ghost" aria-label="External link">
-							<ArrowUpRight class="size-4" />
-						</Button>
+						{#snippet child({ props })}
+							<Button {...props} size="icon-sm" variant="ghost" aria-label="External link">
+								<ArrowUpRight class="size-4" />
+							</Button>
+						{/snippet}
 					</TooltipTrigger>
 					<TooltipContent>
 						<p>Open in new tab</p>
