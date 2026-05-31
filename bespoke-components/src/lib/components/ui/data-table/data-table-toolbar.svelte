@@ -1,6 +1,6 @@
 <script>
 	import { cn } from '../../../utils.js';
-	import { Search, X } from 'lucide-svelte';
+	import { Search, X } from '@lucide/svelte';
 
 	/** @type {{
 	 *   search?: string,

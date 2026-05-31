@@ -39,7 +39,7 @@
 </script>
 
 <script>
-	import { Loader2 } from 'lucide-svelte';
+	import { Loader2 } from '@lucide/svelte';
 	import { resolve as _resolve } from '$app/paths';
 	const resolve = /** @type {(path: string) => string} */ (_resolve);
 	import { SvelteSet } from 'svelte/reactivity';

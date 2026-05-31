@@ -1,7 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import { cn } from '../../../utils.js';
-	import { ChevronsUpDown, X } from 'lucide-svelte';
+	import { ChevronsUpDown, X } from '@lucide/svelte';
 
 	/** @type {{ placeholder?: string, class?: string, [key: string]: any }} */
 	let { placeholder = 'Select...', class: className = '', ...restProps } = $props();

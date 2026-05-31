@@ -11,7 +11,7 @@
 	import DropdownMenuContent from '../dropdown-menu/dropdown-menu-content.svelte';
 	import DropdownMenuLabel from '../dropdown-menu/dropdown-menu-label.svelte';
 	import DropdownMenuSeparator from '../dropdown-menu/dropdown-menu-separator.svelte';
-	import { ArrowUp, ArrowDown, ArrowUpDown, SlidersHorizontal, ChevronDown } from 'lucide-svelte';
+	import { ArrowUp, ArrowDown, ArrowUpDown, SlidersHorizontal, ChevronDown } from '@lucide/svelte';
 
 	/**
 	 * @typedef {{

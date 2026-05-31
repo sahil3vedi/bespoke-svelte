@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { LoaderCircle } from 'lucide-svelte';
+	import { LoaderCircle } from '@lucide/svelte';
 	import { loadingStore, stopLoading } from './loading.svelte.js';
 
 	const FADE_DURATION = 300;

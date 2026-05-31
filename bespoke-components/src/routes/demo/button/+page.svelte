@@ -1,6 +1,6 @@
 <script>
 	import { Button } from '$lib/index.js';
-	import { ArrowUpRight, GitBranch, CircleFadingArrowUp } from 'lucide-svelte';
+	import { ArrowUpRight, GitBranch, CircleFadingArrowUp } from '@lucide/svelte';
 
 	let isLoading = $state(false);
 	let loadingText = $state('Submit');

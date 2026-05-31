@@ -1,6 +1,6 @@
 <script>
 	import { cn } from '../../../utils.js';
-	import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-svelte';
+	import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from '@lucide/svelte';
 	import { Button } from '../button/index.js';
 
 	/** @type {{

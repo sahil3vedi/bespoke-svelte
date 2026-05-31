@@ -1,7 +1,7 @@
 <script>
 	import './layout.css';
 	import { BespokeLayout } from '$lib/index.js';
-	import { House } from 'lucide-svelte';
+	import { House } from '@lucide/svelte';
 
 	const { children } = $props();
 

@@ -1,7 +1,7 @@
 <script>
 	import { getContext, tick } from 'svelte';
 	import { cn } from '../../../utils.js';
-	import { Search } from 'lucide-svelte';
+	import { Search } from '@lucide/svelte';
 
 	/** @type {{ children?: import('svelte').Snippet, class?: string, placeholder?: string, [key: string]: any }} */
 	let { children, class: className = '', placeholder = 'Search...', ...restProps } = $props();

@@ -7,7 +7,7 @@
 		OctagonX as OctagonXIcon,
 		Info as InfoIcon,
 		TriangleAlert as TriangleAlertIcon
-	} from 'lucide-svelte';
+	} from '@lucide/svelte';
 
 	let { ...restProps } = $props();
 </script>

@@ -3,7 +3,7 @@
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 	import { browser } from '$app/environment';
-	import { Sun, Moon, MonitorSmartphone } from 'lucide-svelte';
+	import { Sun, Moon, MonitorSmartphone } from '@lucide/svelte';
 	import DropdownMenu from '../dropdown-menu/dropdown-menu.svelte';
 	import DropdownMenuTrigger from '../dropdown-menu/dropdown-menu-trigger.svelte';
 	import DropdownMenuContent from '../dropdown-menu/dropdown-menu-content.svelte';

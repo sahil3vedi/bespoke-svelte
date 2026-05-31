@@ -1,7 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import { cn } from '../../../utils.js';
-	import { ChevronDown } from 'lucide-svelte';
+	import { ChevronDown } from '@lucide/svelte';
 
 	/** @type {{
 	 *   children?: import('svelte').Snippet,

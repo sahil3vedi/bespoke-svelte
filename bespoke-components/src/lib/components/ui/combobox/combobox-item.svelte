@@ -1,7 +1,7 @@
 <script>
 	import { getContext, onMount, onDestroy } from 'svelte';
 	import { cn } from '../../../utils.js';
-	import { Check } from 'lucide-svelte';
+	import { Check } from '@lucide/svelte';
 
 	/** @type {{
 	 *   children?: import('svelte').Snippet,

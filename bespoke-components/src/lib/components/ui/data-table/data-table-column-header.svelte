@@ -1,6 +1,6 @@
 <script>
 	import { cn } from '../../../utils.js';
-	import { ArrowUp, ArrowDown, ArrowUpDown } from 'lucide-svelte';
+	import { ArrowUp, ArrowDown, ArrowUpDown } from '@lucide/svelte';
 
 	/** @type {{
 	 *   label?: string,

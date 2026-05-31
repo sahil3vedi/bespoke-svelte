@@ -1,6 +1,6 @@
 <script>
 	import { cn } from '../../../utils.js';
-	import { ChevronRight, ChevronLeft } from 'lucide-svelte';
+	import { ChevronRight, ChevronLeft } from '@lucide/svelte';
 
 	/** @type {{
 	 *   class?: string,
