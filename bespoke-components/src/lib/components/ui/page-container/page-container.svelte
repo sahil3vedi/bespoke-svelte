@@ -11,7 +11,7 @@
 
 <div
 	data-slot="page-container"
-	class={cn('grid w-full px-7 pb-12 md:pl-28', className)}
+	class={cn('grid w-full min-w-0 overflow-x-auto px-7 pb-12 md:pl-28', className)}
 	{...restProps}
 >
 	{@render children?.()}

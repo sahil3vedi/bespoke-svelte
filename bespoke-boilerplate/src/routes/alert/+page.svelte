@@ -59,11 +59,9 @@
 			<FileWarning class="size-4" />
 			<AlertTitle>Confirm Deletion</AlertTitle>
 			<AlertDescription>This action cannot be undone. 3 files will be deleted.</AlertDescription>
-			<AlertAction>
+			<AlertAction class="flex flex-col gap-2">
 				<Button variant="destructive" size="sm">Delete</Button>
-			</AlertAction>
-			<AlertAction>
-				<Button variant="outline" size="sm">Cancel</Button>
+				<Button variant="outline" size="sm" class="bg-background dark:bg-background">Cancel</Button>
 			</AlertAction>
 		</Alert>
 	</div>
