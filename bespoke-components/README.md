@@ -1,65 +1,57 @@
-# Svelte library
+# @sahil3vedi/bespoke-components
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
+A Svelte 5 component library built on [Bits UI](https://bits-ui.com) and [Tailwind CSS](https://tailwindcss.com), with light/dark theming out of the box.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+- **Svelte 5 native** — runes (`$state`, `$props`, `$bindable`) and snippets, no legacy stores or slots.
+- **Accessible** — WAI-ARIA patterns via Bits UI primitives.
+- **Themeable** — Tailwind v4 design tokens; light and dark modes included.
+- **Composable** — small primitives you compose into larger UI, customisable via the `class` prop on any part.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
+## Installation
 
 ```sh
-# recreate this project
-pnpm dlx sv@0.15.1 create --template library --types jsdoc --add prettier eslint vitest="usages:unit,component" playwright tailwindcss="plugins:typography,forms" mcp="ide:opencode" --install pnpm bespoke-components
+npm install @sahil3vedi/bespoke-components
 ```
 
-## Developing
+### Peer requirements
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+This package expects the consuming app to provide:
 
-```sh
-npm run dev
+- `svelte` `^5`
+- `@sveltejs/kit` `^2`
+- `tailwindcss` `^4` (components are styled with Tailwind utility classes)
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+## Setup
+
+Import the theme stylesheet once (e.g. in your root layout or `app.css`):
+
+```css
+@import '@sahil3vedi/bespoke-components/theme.css';
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+This defines the design tokens (colors, radius, etc.) used by every component, including dark mode.
 
-## Building
+## Usage
 
-To build your library:
+```svelte
+<script>
+	import { Button, Card, CardHeader, CardTitle, Badge } from '@sahil3vedi/bespoke-components';
+</script>
 
-```sh
-npm pack
+<Card>
+	<CardHeader>
+		<CardTitle>Hello</CardTitle>
+		<Badge variant="secondary">v1</Badge>
+	</CardHeader>
+</Card>
+
+<Button onclick={() => alert('clicked')}>Click me</Button>
 ```
 
-To create a production version of your showcase app:
+## Components
 
-```sh
-npm run build
-```
+Button, Dropdown Menu, Select, Combobox, Table, DataTable, Accordion, Input, Textarea, Label, Checkbox, Switch, Dialog, Popover, Tooltip, Card, Badge, Skeleton, Tabs, Alert, Sonner — plus layout primitives (BespokeLayout, Navbar, Sidebar, PageContainer, Loader).
 
-You can preview the production build with `npm run preview`.
+## License
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```sh
-npm publish
-```
+[MIT](./LICENSE) © Sahil Trivedi

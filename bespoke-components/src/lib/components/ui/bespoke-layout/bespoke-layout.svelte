@@ -3,6 +3,14 @@
 	import Sidebar from '../sidebar/sidebar.svelte';
 	import PageContainer from '../page-container/page-container.svelte';
 	import Loader from '../loader/loader.svelte';
+	import { afterNavigate } from '$app/navigation';
+
+	/** @type {HTMLDivElement | null} */
+	let scrollContainer = $state(null);
+
+	afterNavigate(() => {
+		scrollContainer?.scrollTo(0, 0);
+	});
 
 	/** @type {{
 	 *   sidebarItems: Array<{ label: string, icon: new (...args: any[]) => import('svelte').SvelteComponent, path: string }>,
@@ -60,7 +68,10 @@
 		onclick={toggleCollapsed}
 		onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleCollapsed()}
 	></div>
-	<div class="absolute top-12 right-0 bottom-0 left-0 overflow-y-auto">
+	<div
+		bind:this={scrollContainer}
+		class="absolute top-12 right-0 bottom-0 left-0 overflow-y-auto"
+	>
 		<PageContainer>
 			{@render children?.()}
 		</PageContainer>

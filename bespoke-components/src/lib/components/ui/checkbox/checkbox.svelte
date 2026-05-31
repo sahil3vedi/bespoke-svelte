@@ -1,8 +1,7 @@
 <script>
 	import { Checkbox as CheckboxPrimitive } from 'bits-ui';
 	import { cn } from '../../../utils.js';
-	import CheckIcon from '@lucide/svelte/icons/check';
-	import MinusIcon from '@lucide/svelte/icons/minus';
+	import { Check as CheckIcon, Minus as MinusIcon } from 'lucide-svelte';
 
 	let {
 		ref = $bindable(null),
