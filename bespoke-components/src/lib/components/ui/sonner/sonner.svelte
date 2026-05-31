@@ -32,3 +32,10 @@
 		<TriangleAlertIcon class="size-4" />
 	{/snippet}
 </Sonner>
+
+<style>
+	:global([data-sonner-toaster] [data-sonner-toast][data-styled='true'] [data-description]) {
+		color: var(--color-popover-foreground);
+		opacity: 0.9;
+	}
+</style>
