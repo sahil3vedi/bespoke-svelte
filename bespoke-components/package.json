@@ -4,14 +4,13 @@
 	"description": "A Svelte 5 component library built on Bits UI and Tailwind CSS, with light/dark theming out of the box.",
 	"license": "MIT",
 	"author": "Sahil Trivedi <sahiltrivediw@gmail.com>",
-	"homepage": "https://github.com/sahil3vedi/bespokev2/tree/master/bespoke-components#readme",
+	"homepage": "https://github.com/sahil3vedi/bespoke-svelte#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/sahil3vedi/bespokev2.git",
-		"directory": "bespoke-components"
+		"url": "git+https://github.com/sahil3vedi/bespoke-svelte.git"
 	},
 	"bugs": {
-		"url": "https://github.com/sahil3vedi/bespokev2/issues"
+		"url": "https://github.com/sahil3vedi/bespoke-svelte/issues"
 	},
 	"publishConfig": {
 		"access": "public"
