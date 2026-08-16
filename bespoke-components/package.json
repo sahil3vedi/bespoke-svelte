@@ -1,6 +1,6 @@
 {
 	"name": "@sahil3vedi/bespoke-components",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "A Svelte 5 component library built on Bits UI and Tailwind CSS, with light/dark theming out of the box.",
 	"license": "MIT",
 	"author": "Sahil Trivedi <sahiltrivediw@gmail.com>",

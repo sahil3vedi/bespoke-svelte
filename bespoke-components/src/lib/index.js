@@ -1,5 +1,7 @@
 import './theme.css';
 
+/** @typedef {import('./types.js').SidebarItem} SidebarItem */
+
 // Reexport your entry components here
 export { Button, buttonVariants } from './components/ui/button/index.js';
 export { Navbar } from './components/ui/navbar/index.js';
