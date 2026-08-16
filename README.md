@@ -18,7 +18,7 @@ cd <app-name>
 pnpm dev
 ```
 
-It runs `sv create` (minimal + TypeScript, with prettier, eslint, vitest, playwright, tailwind, and the node adapter), installs `@sahil3vedi/bespoke-components` and `@lucide/svelte`, then writes the Tailwind/theme entry, the layout shell, and a starter home route.
+It runs `sv create` (minimal + TypeScript, with prettier, eslint, vitest, playwright, tailwind, and the node adapter), installs `@sahil3vedi/bespoke-components` and `@lucide/svelte`, then writes an `app.html` with a no-flash dark-mode bootstrap, the Tailwind/theme entry, the layout shell, and a starter home route.
 
 ## `bespoke-components/` — the component library
 

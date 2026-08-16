@@ -37,6 +37,44 @@ pnpm add "$LIB" @lucide/svelte
 # that wiring with our own layout.css/theme.css, so remove the stray entry.
 rm -f src/app.css
 
+echo "==> Writing app.html with no-flash theme bootstrap..."
+# The sidebar applies .dark only after hydration; this inline script sets it
+# before first paint from localStorage/system, and the inline style paints the
+# dark background even before the CSS bundle loads (colors match theme.css).
+cat > src/app.html <<'HTML'
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="text-scale" content="scale" />
+		<style>
+			html.dark {
+				background-color: #0f172a;
+				color: #f8fafc;
+			}
+		</style>
+		<script>
+			(function () {
+				try {
+					var t = localStorage.getItem('theme');
+					if (
+						t === 'dark' ||
+						(t !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+					) {
+						document.documentElement.classList.add('dark');
+					}
+				} catch (e) {}
+			})();
+		</script>
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
+HTML
+
 echo "==> Writing Tailwind + theme entry..."
 # Tailwind v4 must scan the library's compiled .svelte files in node_modules,
 # otherwise the utility classes the components rely on are never generated.
