@@ -16,7 +16,7 @@
 	import TooltipProvider from '../tooltip/tooltip-provider.svelte';
 
 	/** @type {{
-	 *   sidebarItems: Array<{ label: string, icon: new (...args: any[]) => import('svelte').SvelteComponent, path: string }>,
+	 *   sidebarItems: Array<import('../../../types.js').SidebarItem>,
 	 *   collapsed?: boolean,
 	 *   class?: string,
 	 *   [key: string]: any

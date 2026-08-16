@@ -13,7 +13,7 @@
 	});
 
 	/** @type {{
-	 *   sidebarItems: Array<{ label: string, icon: new (...args: any[]) => import('svelte').SvelteComponent, path: string }>,
+	 *   sidebarItems: Array<import('../../../types.js').SidebarItem>,
 	 *   title?: string,
 	 *   children?: import('svelte').Snippet,
 	 *   navbarEnd?: import('svelte').Snippet
