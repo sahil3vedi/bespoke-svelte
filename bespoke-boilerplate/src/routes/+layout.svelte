@@ -1,7 +1,7 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
-	import { BespokeLayout } from '@sahil3vedi/bespoke-components';
+	import { BespokeLayout, type SidebarItem } from '@sahil3vedi/bespoke-components';
 	import {
 		House,
 		ArrowDown,
@@ -29,7 +29,7 @@
 
 	let { children } = $props();
 
-	const sidebarItems = [
+	const sidebarItems: SidebarItem[] = [
 		{ label: 'Home', icon: House, path: '/' },
 		{ label: 'Button', icon: ArrowDown, path: '/button' },
 		{ label: 'Dropdown Menu', icon: ChevronDown, path: '/dropdown-menu' },

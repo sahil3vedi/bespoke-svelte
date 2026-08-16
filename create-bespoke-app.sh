@@ -57,12 +57,12 @@ echo "==> Writing layout shell + empty home route..."
 cat > src/routes/+layout.svelte <<'SVELTE'
 <script lang="ts">
 	import './layout.css';
-	import { BespokeLayout } from '@sahil3vedi/bespoke-components';
+	import { BespokeLayout, type SidebarItem } from '@sahil3vedi/bespoke-components';
 	import { House } from '@lucide/svelte';
 
 	let { children } = $props();
 
-	const sidebarItems = [{ label: 'Home', icon: House, path: '/' }];
+	const sidebarItems: SidebarItem[] = [{ label: 'Home', icon: House, path: '/' }];
 </script>
 
 <BespokeLayout title="App" {sidebarItems}>
