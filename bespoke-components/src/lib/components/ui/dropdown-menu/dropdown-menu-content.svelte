@@ -9,7 +9,13 @@
 	 *   side?: 'top' | 'bottom',
 	 *   [key: string]: any
 	 * }} */
-	let { children, class: className = '', align = 'start', side = 'bottom', ...restProps } = $props();
+	let {
+		children,
+		class: className = '',
+		align = 'start',
+		side = 'bottom',
+		...restProps
+	} = $props();
 
 	const ctx = /** @type {{ open: boolean, toggle: () => void, close: () => void }} */ (
 		getContext('dropdown')

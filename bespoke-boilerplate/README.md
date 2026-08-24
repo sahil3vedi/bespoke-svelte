@@ -30,11 +30,11 @@ UI comes from [`@sahil3vedi/bespoke-components`](https://www.npmjs.com/package/@
 
 The boilerplate can resolve the library two ways, toggled by the `BESPOKE_SOURCE_ALIAS` env var:
 
-| Command | `BESPOKE_SOURCE_ALIAS` | Library resolves from |
-| --- | --- | --- |
-| `pnpm dev` | `true` | local source at `../bespoke-components/src/lib` — **hot reload** while editing the library |
-| `pnpm dev:dist` | `false` | the **published** npm package |
-| `pnpm build` | _(unset)_ | the **published** npm package |
+| Command         | `BESPOKE_SOURCE_ALIAS` | Library resolves from                                                                      |
+| --------------- | ---------------------- | ------------------------------------------------------------------------------------------ |
+| `pnpm dev`      | `true`                 | local source at `../bespoke-components/src/lib` — **hot reload** while editing the library |
+| `pnpm dev:dist` | `false`                | the **published** npm package                                                              |
+| `pnpm build`    | _(unset)_              | the **published** npm package                                                              |
 
 The alias is wired in `svelte.config.js` (key `@sahil3vedi/bespoke-components` → local `src/lib`) and `vite.config.ts` (`optimizeDeps.exclude`). Local-source mode requires the `bespoke-components` repo checked out as a sibling directory; it is a dev convenience only — production builds always use the published package.
 

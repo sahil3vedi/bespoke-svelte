@@ -53,10 +53,7 @@
 		onclick={toggleCollapsed}
 		onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleCollapsed()}
 	></div>
-	<div
-		bind:this={scrollContainer}
-		class="absolute top-12 right-0 bottom-0 left-0 overflow-y-auto"
-	>
+	<div bind:this={scrollContainer} class="absolute top-12 right-0 bottom-0 left-0 overflow-y-auto">
 		<PageContainer>
 			{@render children?.()}
 		</PageContainer>
