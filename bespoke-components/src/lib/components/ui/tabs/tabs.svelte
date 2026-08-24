@@ -2,7 +2,12 @@
 	import { Tabs as TabsPrimitive } from 'bits-ui';
 	import { cn } from '../../../utils.js';
 
-	let { ref = $bindable(null), value = $bindable(''), class: className = '', ...restProps } = $props();
+	let {
+		ref = $bindable(null),
+		value = $bindable(''),
+		class: className = '',
+		...restProps
+	} = $props();
 </script>
 
 <TabsPrimitive.Root

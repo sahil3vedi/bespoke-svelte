@@ -21,7 +21,12 @@
 	 *   class?: string,
 	 *   [key: string]: any
 	 * }} */
-	let { sidebarItems, collapsed = $bindable(false), class: className = '', ...restProps } = $props();
+	let {
+		sidebarItems,
+		collapsed = $bindable(false),
+		class: className = '',
+		...restProps
+	} = $props();
 
 	/** @type {'light' | 'dark' | 'system'} */
 	let theme = $state(
@@ -83,45 +88,45 @@
 		<nav
 			class="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto px-3.5 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
 		>
-		{#snippet navLink(item, props)}
-			<a
-				href={resolve(/** @type {any} */ (item.path))}
-				{...props}
-				class={cn(
-					'flex h-10 items-center gap-3 rounded-lg px-3 transition-colors',
-					isActive(item.path)
-						? 'bg-muted text-foreground'
-						: 'text-muted-foreground hover:bg-muted hover:text-foreground'
-				)}
-			>
-				<item.icon class="size-4 shrink-0" />
-				<span
+			{#snippet navLink(item, props)}
+				<a
+					href={resolve(/** @type {any} */ (item.path))}
+					{...props}
 					class={cn(
-						'truncate text-sm font-medium md:transition-all md:duration-150',
-						collapsed ? 'md:w-0 md:overflow-hidden md:opacity-0' : 'opacity-100'
+						'flex h-10 items-center gap-3 rounded-lg px-3 transition-colors',
+						isActive(item.path)
+							? 'bg-muted text-foreground'
+							: 'text-muted-foreground hover:bg-muted hover:text-foreground'
 					)}
 				>
-					{item.label}
-				</span>
-			</a>
-		{/snippet}
-
-		{#each sidebarItems as item (item.path)}
-			{#if collapsed}
-				<Tooltip>
-					<TooltipTrigger>
-						{#snippet child({ props })}
-							{@render navLink(item, props)}
-						{/snippet}
-					</TooltipTrigger>
-					<TooltipContent side="right" sideOffset={8}>
+					<item.icon class="size-4 shrink-0" />
+					<span
+						class={cn(
+							'truncate text-sm font-medium md:transition-all md:duration-150',
+							collapsed ? 'md:w-0 md:overflow-hidden md:opacity-0' : 'opacity-100'
+						)}
+					>
 						{item.label}
-					</TooltipContent>
-				</Tooltip>
-			{:else}
-				{@render navLink(item, {})}
-			{/if}
-		{/each}
+					</span>
+				</a>
+			{/snippet}
+
+			{#each sidebarItems as item (item.path)}
+				{#if collapsed}
+					<Tooltip>
+						<TooltipTrigger>
+							{#snippet child({ props })}
+								{@render navLink(item, props)}
+							{/snippet}
+						</TooltipTrigger>
+						<TooltipContent side="right" sideOffset={8}>
+							{item.label}
+						</TooltipContent>
+					</Tooltip>
+				{:else}
+					{@render navLink(item, {})}
+				{/if}
+			{/each}
 		</nav>
 	</TooltipProvider>
 
