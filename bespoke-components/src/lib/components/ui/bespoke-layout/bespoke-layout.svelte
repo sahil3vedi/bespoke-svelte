@@ -22,25 +22,10 @@
 
 	let collapsed = $state(true);
 	let maskVisible = $state(false);
-	/** @type {ReturnType<typeof setTimeout> | undefined} */
-	let pendingToggle;
 
 	const toggleCollapsed = () => {
-		if (pendingToggle !== undefined) {
-			clearTimeout(pendingToggle);
-			pendingToggle = undefined;
-		}
-		if (collapsed) {
-			maskVisible = true;
-			collapsed = false;
-			pendingToggle = undefined;
-		} else {
-			collapsed = true;
-			pendingToggle = setTimeout(() => {
-				maskVisible = false;
-				pendingToggle = undefined;
-			}, 150);
-		}
+		collapsed = !collapsed;
+		maskVisible = !collapsed;
 	};
 </script>
 
