@@ -74,7 +74,7 @@
 	data-slot="sidebar"
 	class={cn(
 		'absolute top-12 bottom-0 left-0 z-40 flex flex-col border-r border-border bg-background py-4 transition-all duration-150 ease-in-out',
-		collapsed ? 'w-18 max-md:hidden' : 'w-56',
+		collapsed ? 'w-18 max-md:invisible max-md:w-56 max-md:-translate-x-full' : 'w-56',
 		className
 	)}
 	{...restProps}
@@ -97,8 +97,8 @@
 				<item.icon class="size-4 shrink-0" />
 				<span
 					class={cn(
-						'truncate text-sm font-medium transition-all duration-150',
-						collapsed ? 'w-0 overflow-hidden opacity-0' : 'opacity-100'
+						'truncate text-sm font-medium md:transition-all md:duration-150',
+						collapsed ? 'md:w-0 md:overflow-hidden md:opacity-0' : 'opacity-100'
 					)}
 				>
 					{item.label}
@@ -139,7 +139,7 @@
 					<MonitorSmartphone class="ml-0.5 size-4 shrink-0" />
 				{/if}
 				{#if !collapsed}
-					<span class="truncate text-sm font-medium opacity-100 transition-all duration-150">
+					<span class="truncate text-sm font-medium opacity-100 md:transition-all md:duration-150">
 						{themeLabel}
 					</span>
 				{/if}
